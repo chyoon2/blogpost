@@ -1,5 +1,3 @@
-import jsonPlaceholder from "../apis/jsonplaceholder";
-
 // export const fetchPosts = () => {
 //   //bad approach
 //   // const response = await jsonplaceholder.get("/posts");
@@ -13,8 +11,9 @@ import jsonPlaceholder from "../apis/jsonplaceholder";
 // //do not need to return an object, rather dispatch an object.
 //MAJOR REFACTOR BELOW
 
+import jsonPlaceholder from "../apis/jsonplaceholder";
+
 export const fetchPosts = () => async (dispatch) => {
   const response = await jsonPlaceholder.get("/posts");
-
-  dispatch({ type: "FETCH_Posts", payload: response });
+  dispatch({ type: "FETCH_POSTS", payload: response.data });
 };
